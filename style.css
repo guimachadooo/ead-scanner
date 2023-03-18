@@ -7,14 +7,6 @@ body{
   max-width: 100%;
 }
 
-.actions{
-  margin-top: 50%;
-}
-
-.actions svg{
-  max-width: 50%;
-}
-
 .space{
   margin-top: 1em;
 }
@@ -23,13 +15,49 @@ body{
   
 }
 
-#start-button, #stop-button, #cam-qr-result{
+.actions{
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+  font-size: 8em;
+}
+
+#start-button{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  background: linear-gradient(to bottom, #0858cf, #074652);
+}
+
+#stop-button{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  background: linear-gradient(to bottom, #ee3a1a, #9e1d0c);
+}
+
+#send-button{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  background: linear-gradient(to bottom, #08cf54, #10861a);
+}
+
+#cam-qr-result{
   font-size: 10em;
+  cursor: pointer;
 }
 
 #video-container {
   line-height: 0;
-  background-color: #333;
+  border-radius: 30px;
+  margin: 4em 0 0 0;
 }
 
 #video-container.example-style-1 .scan-region-highlight-svg,
@@ -59,7 +87,7 @@ body{
   stroke-dasharray: none !important;
 }
 
-#flash-toggle {
+#flash-toggle, #cam-list, #cam-box, #inversion-box, #style-box {
   display: none;
 }
 
