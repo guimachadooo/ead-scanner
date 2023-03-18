@@ -9,6 +9,9 @@ const showScanRegion = document.getElementById('show-scan-region');
 const startButton = document.getElementById('start-button');
 const stopButton = document.getElementById('stop-button');
 const sendButton = document.getElementById('send-button');
+const configButton = document.getElementById('config-button');
+const sendData = document.getElementById('send-data');
+const cancelData = document.getElementById('cancel-data');
 const camQrResult = document.getElementById('cam-qr-result');
 const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
 const fileSelector = document.getElementById('file-selector');
@@ -16,6 +19,8 @@ const camHasFlash = document.getElementById('cam-has-flash');
 const flashToggle = document.getElementById('flash-toggle');
 const flashState = document.getElementById('flash-state');
 const fileQrResult = document.getElementById('file-qr-result');
+const showToast = document.getElementById('toast-success');
+let toast = new bootstrap.Toast(showToast)
 
 window.onload = function() {
   scanner.stop();
@@ -46,8 +51,11 @@ function setResult(label, result) {
   label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
   
   sendButton.style.display = 'block';
+  videoContainer.style.display = "none";
   stopButton.style.display = 'none';
-  label.textContent = "OK!"
+  configButton.style.display = 'none';
+  
+  //label.textContent = "OK!"
   scanner.stop();
 }
 
@@ -100,16 +108,38 @@ showScanRegion.addEventListener('change', (e) => {
 
 startButton.addEventListener('click', () => {
   scanner.start();
-  videoContainer.style.background = "#333";
+  video.style.display = "block";
+  videoContainer.style.display = "block";
+  videoContainer.style.padding = "em";
   stopButton.style.display = 'block';
   startButton.style.display = 'none';
 });
 
 stopButton.addEventListener('click', () => {
   scanner.stop();
-  videoContainer.style.background = "none";
+  video.style.display = "none";
+  videoContainer.style.display = "none";
   startButton.style.display = 'block';
   stopButton.style.display = 'none';
+});
+
+sendButton.addEventListener('click', () => {
+  startButton.style.display = 'block';
+  sendButton.style.display = 'none';
+});
+
+sendData.addEventListener('click', () => {
+  toast.show();
+
+  setTimeout(() => {
+    window.location.reload();
+  }, 300);
+});
+
+cancelData.addEventListener('click', () => {
+  setTimeout(() => {
+    window.location.reload();
+  }, 200);
 });
 
 /* const updateFlashAvailability = () => {
