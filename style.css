@@ -1,9 +1,35 @@
-div {
-  margin-bottom: 16px;
+body{
+  background: linear-gradient(to right, #31b2c9, #16bd9c);
+}
+
+.logo{
+  margin: 1em 0px;
+  max-width: 100%;
+}
+
+.actions{
+  margin-top: 50%;
+}
+
+.actions svg{
+  max-width: 50%;
+}
+
+.space{
+  margin-top: 1em;
+}
+
+.container{
+  
+}
+
+#start-button, #stop-button, #cam-qr-result{
+  font-size: 10em;
 }
 
 #video-container {
   line-height: 0;
+  background-color: #333;
 }
 
 #video-container.example-style-1 .scan-region-highlight-svg,
@@ -17,13 +43,16 @@ div {
   height: max-content;
   overflow: hidden;
 }
+
 #video-container.example-style-2 .scan-region-highlight {
   border-radius: 30px;
   outline: rgba(0, 0, 0, .25) solid 50vmax;
 }
+
 #video-container.example-style-2 .scan-region-highlight-svg {
   display: none;
 }
+
 #video-container.example-style-2 .code-outline-highlight {
   stroke: rgba(255, 255, 255, .5) !important;
   stroke-width: 15 !important;
@@ -37,6 +66,7 @@ div {
 hr {
   margin-top: 32px;
 }
+
 input[type="file"] {
   display: block;
   margin-bottom: 16px;

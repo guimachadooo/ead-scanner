@@ -12,6 +12,8 @@ const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
 const fileSelector = document.getElementById('file-selector');
 const fileQrResult = document.getElementById('file-qr-result');
 
+scanner.stop();
+
 function convertToJson(result){
   let jsonVcard = {};
   let vCardData = result.data.split("\n");
