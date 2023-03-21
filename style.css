@@ -4,7 +4,7 @@ body{
 
 .logo{
   margin: 3em 0px 0px 0px;
-  max-width: 100%;
+  width: 80%;
 }
 
 .space{
@@ -12,65 +12,42 @@ body{
 }
 
 .logo-afiliados{
-  position: absolute;
-  top: 30%;
-  left: 27%;
-  width: 50%;
-}
-
-.logo-afiliados img{
-  width: 100%;
   filter: invert(1);
+  width: 70%;
+  margin: 30em 5em 5em 5em;
 }
 
 .actions{
   position: fixed;
   left: 50%;
   bottom: 0px;
-  display: flex;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  justify-content: center;
-  font-size: 8em;
+  transform: translate(-50%, -10%);
 }
 
 .actions button{
   margin: 0 10px 0 10px;
-}
-
-#start-button{
+  font-size: 8em;
   width: 250px;
   height: 250px;
   border-radius: 50%;
   border: none;
   color: #fff;
+}
+
+#start-button{
   background: linear-gradient(to bottom, #0858cf, #074652);
 }
 
 #stop-button{
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: none;
-  color: #fff;
   background: linear-gradient(to bottom, #ee3a1a, #9e1d0c);
 }
 
 #send-button{
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: none;
-  color: #fff;
   background: linear-gradient(to bottom, #08cf54, #10861a);
 }
 
 #config-button{
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: none;
-  color: #fff;
+  display: none;
   background: linear-gradient(to bottom, #555756, #3e3f3e);
 }
 
@@ -151,6 +128,9 @@ select{
 #qr-video{
   border-radius: 40px;
   padding: 1em;
+  position: fixed;
+  top: 15%;
+  left: 12%;
 }
 
 #video-container {
@@ -197,4 +177,60 @@ hr {
 input[type="file"] {
   display: block;
   margin-bottom: 16px;
+}
+
+/* mobile */
+@media only screen and (min-device-width: 480px){
+  .logo{
+    width: 80%;
+  }
+
+  .logo-afiliados{
+    margin: 10em;
+  }
+
+}
+
+/* ipad */
+@media only screen and (min-device-width: 768px){
+  .logo{
+    width: 80%;
+  }
+
+  .logo-afiliados{
+    margin: 10em;
+    width: 30%;
+  }
+
+  .actions button{
+    width: 150px;
+    height: 150px;
+    font-size: 4.25em;
+  }
+
+  .actions #start-button i, .actions #stop-button i, .actions #config-button i, .actions #send-button i{
+    margin-left: -0.4em;
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 992px){
+  .logo{
+    width: 30%;
+  }
+
+  .logo-afiliados{
+    margin: 10em;
+    width: 20%;
+  }
+
+  .actions button{
+    width: 130px;
+    height: 130px;
+    font-size: 4em;
+  }
+
+  .actions #start-button i, .actions #stop-button i, .actions #config-button i, .actions #send-button i{
+    margin-left: 0;
+  }
 }

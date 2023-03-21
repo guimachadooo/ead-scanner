@@ -17,38 +17,48 @@
 
 <body>
   <div class="container text-center content">
-    <div class="box-logo">
-      <img alt="ead-scanner" class="logo"
-        src="https://cdn.eadplataforma.app/assets/read-qrcode/logo-ead-scanner-branco.png" />
-    </div>
+    <row>
+      <col class="col-md-12">
+          <img alt="ead-scanner" class="logo"
+            src="https://cdn.eadplataforma.app/assets/read-qrcode/logo-ead-scanner-branco.png" />
 
-    <div class="logo-afiliados">
-      <img alt="afiliados-brasil" src="https://afiliadosbrasil.com.br/wp-content/uploads/2023/02/logo-afiliadosbr.png.webp" />
-    </div>
+          <div class="space"></div>
 
-    <div id="video-container">
-      <video id="qr-video"></video>
-    </div>
+          <img class="logo-afiliados" alt="afiliados-brasil" src="https://afiliadosbrasil.com.br/wp-content/uploads/2023/02/logo-afiliadosbr.png.webp" />
+      </col>
+    </row>
 
-    <div class="actions">
-      <button id="start-button">
-        <i class="bi bi-qr-code-scan"></i>
-      </button>
+    <row>
+      <col class="col-md-12">
+        <div id="video-container">
+          <video id="qr-video"></video>
+        </div>
+      </col>
+    </row>
 
-      <button id="stop-button">
-        <i class="bi bi-camera-video-off"></i>
-      </button>
-
-      <button type="button" id="send-button" data-bs-toggle="modal" data-bs-target="#modal-confirm">
-        <i class="bi bi-send-check"></i>
-      </button>
-
-      <button type="button" id="config-button" data-bs-toggle="modal" data-bs-target="#modal-config">
-        <i class="bi bi-gear"></i>
-      </button>
-    </div>
-
-    <span id="cam-qr-result">---</span>
+    <row>
+      <col class="col-md-12">
+        <div class="actions">
+          <button id="start-button">
+            <i class="bi bi-qr-code-scan"></i>
+          </button>
+    
+          <button id="stop-button">
+            <i class="bi bi-camera-video-off"></i>
+          </button>
+    
+          <button type="button" id="send-button" data-bs-toggle="modal" data-bs-target="#modal-confirm">
+            <i class="bi bi-send-check"></i>
+          </button>
+    
+          <button type="button" id="config-button" data-bs-toggle="modal" data-bs-target="#modal-config">
+            <i class="bi bi-gear"></i>
+          </button>
+        </div>
+    
+        <span id="cam-qr-result">---</span>
+      </col>
+    </row>    
   </div>
 
   <!-- Modal Confirm -->

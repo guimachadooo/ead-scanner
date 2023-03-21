@@ -20,7 +20,8 @@ const flashToggle = document.getElementById('flash-toggle');
 const flashState = document.getElementById('flash-state');
 const fileQrResult = document.getElementById('file-qr-result');
 const showToast = document.getElementById('toast-success');
-let toast = new bootstrap.Toast(showToast)
+let toast = new bootstrap.Toast(showToast);
+let formData;
 
 window.onload = function() {
   scanner.stop();
@@ -54,6 +55,7 @@ function setResult(label, result) {
   videoContainer.style.display = "none";
   stopButton.style.display = 'none';
   configButton.style.display = 'none';
+  formData = convertToJson(result);
   
   //label.textContent = "OK!"
   scanner.stop();
@@ -129,11 +131,27 @@ sendButton.addEventListener('click', () => {
 });
 
 sendData.addEventListener('click', () => {
-  toast.show();
 
-  setTimeout(() => {
-    window.location.reload();
-  }, 300);
+  fetch('https://eadmin.eadplataforma.com/eadScanner.php?token=09d226908be059315316d6f66a99a4e4 ', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: formData
+  })
+  .then((res) => {
+    console.log(res)
+    toast.show();
+
+    /* setTimeout(() => {
+      window.location.reload();
+    }, 350); */
+  })
+  .catch((err) => {
+    console.log('erro: ', err);
+  })
+
 });
 
 cancelData.addEventListener('click', () => {
