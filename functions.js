@@ -14,13 +14,14 @@ const sendData = document.getElementById('send-data');
 const switchTrial = document.getElementById('flexSwitchCheckDefault');
 const cancelData = document.getElementById('cancel-data');
 const camQrResult = document.getElementById('cam-qr-result');
+const inversionMode = document.getElementById('inversion-mode-select');
+const showToast = document.getElementById('toast-success');
 const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
 const fileSelector = document.getElementById('file-selector');
 const camHasFlash = document.getElementById('cam-has-flash');
 const flashToggle = document.getElementById('flash-toggle');
 const flashState = document.getElementById('flash-state');
 const fileQrResult = document.getElementById('file-qr-result');
-const showToast = document.getElementById('toast-success');
 let toast = new bootstrap.Toast(showToast);
 let qrData;
 
@@ -155,39 +156,23 @@ sendData.addEventListener('click', () => {
 
   xhr.onload = () => {
     if (xhr.status >= 200 && xhr.status < 300) {
-        console.log(response)
+      console.log(xhr.response)
+      toast.show();
     }
   }
 
   xhr.send(form);
-
-  /*fetch(address, {
-      method: 'POST',
-      mode: "no-cors",
-      cache: "no-cache",
-      headers: {
-          'Content-Type': "application/x-www-form-urlencoded"
-      },
-      body: form
-  })
-  .then((res) => {
-      console.log(res)
-      toast.show();
-
-      /* setTimeout(() => {
-        window.location.reload();
-      }, 350); */
-  /*})
-  .catch((err) => {
-      console.log('erro: ', err);
-  })*/
 });
 
 cancelData.addEventListener('click', () => {
-  setTimeout(() => {
+  /* setTimeout(() => {
     window.location.reload();
-  }, 200);
+  }, 200); */
 });
+
+/* inversionMode.addEventListener('change', event => {
+  scanner.setInversionMode(event.target.value);
+}); */
 
 /* const updateFlashAvailability = () => {
   scanner.hasFlash().then(hasFlash => {
@@ -195,10 +180,6 @@ cancelData.addEventListener('click', () => {
     flashToggle.style.display = hasFlash ? 'inline-block' : 'none';
   });
 }; */
-
-document.getElementById('inversion-mode-select').addEventListener('change', event => {
-  scanner.setInversionMode(event.target.value);
-});
 
 /* camList.addEventListener('change', event => {
   scanner.setCamera(event.target.value).then(updateFlashAvailability);
