@@ -138,52 +138,49 @@ switchTrial.addEventListener('switchChange.bootstrapSwitch', function (event, st
 });
 
 sendData.addEventListener('click', () => {
+  let token = "09d226908be059315316d6f66a99a4e4";
+  let address = `https://eadmin.eadplataforma.com/eadScanner.php?token=${token}`;
 
-    let token = "09d226908be059315316d6f66a99a4e4";
-    let address = `https://eadmin.eadplataforma.com/eadScanner.php?token=${token}`;
+  let form = new URLSearchParams();
 
-    let form = new URLSearchParams();
+  for(let i in qrData){
+      form.append(i, qrData[i]);
+  }
 
-    for(let i in qrData){
-        form.append(i, qrData[i]);
+  //form.append("data", JSON.stringify(qrData));
+  let xhr = new XMLHttpRequest();
+
+  xhr.open("POST", address);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.onload = () => {
+    if (xhr.status >= 200 && xhr.status < 300) {
+        console.log(response)
     }
+  }
 
-    //form.append("data", JSON.stringify(qrData));
+  xhr.send(form);
 
-    let xhr = new XMLHttpRequest();
-  
-    xhr.open("POST", address);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  /*fetch(address, {
+      method: 'POST',
+      mode: "no-cors",
+      cache: "no-cache",
+      headers: {
+          'Content-Type': "application/x-www-form-urlencoded"
+      },
+      body: form
+  })
+  .then((res) => {
+      console.log(res)
+      toast.show();
 
-    xhr.onload = () => {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            console.log(response)
-        }
-    }
-
-    xhr.send(form);
-
-    /*fetch(address, {
-        method: 'POST',
-        mode: "no-cors",
-        cache: "no-cache",
-        headers: {
-            'Content-Type': "application/x-www-form-urlencoded"
-        },
-        body: form
-    })
-    .then((res) => {
-        console.log(res)
-        toast.show();
-
-        /* setTimeout(() => {
-          window.location.reload();
-        }, 350); */
-    /*})
-    .catch((err) => {
-        console.log('erro: ', err);
-    })*/
-
+      /* setTimeout(() => {
+        window.location.reload();
+      }, 350); */
+  /*})
+  .catch((err) => {
+      console.log('erro: ', err);
+  })*/
 });
 
 cancelData.addEventListener('click', () => {
@@ -199,9 +196,9 @@ cancelData.addEventListener('click', () => {
   });
 }; */
 
-/* document.getElementById('inversion-mode-select').addEventListener('change', event => {
+document.getElementById('inversion-mode-select').addEventListener('change', event => {
   scanner.setInversionMode(event.target.value);
-}); */
+});
 
 /* camList.addEventListener('change', event => {
   scanner.setCamera(event.target.value).then(updateFlashAvailability);
