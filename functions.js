@@ -21,7 +21,7 @@ const flashState = document.getElementById('flash-state');
 const fileQrResult = document.getElementById('file-qr-result');
 const showToast = document.getElementById('toast-success');
 let toast = new bootstrap.Toast(showToast);
-let formData;
+let qrData;
 
 window.onload = function() {
   scanner.stop();
@@ -39,7 +39,7 @@ function convertToJson(result){
     jsonVcard[field.shift()] = field.join(":");
   })
 
-  return JSON.stringify(jsonVcard);
+  return jsonVcard;
 }
 
 function setResult(label, result) {
@@ -55,7 +55,7 @@ function setResult(label, result) {
   videoContainer.style.display = "none";
   stopButton.style.display = 'none';
   configButton.style.display = 'none';
-  formData = convertToJson(result);
+  qrData = convertToJson(result);
   
   //label.textContent = "OK!"
   scanner.stop();
@@ -132,25 +132,50 @@ sendButton.addEventListener('click', () => {
 
 sendData.addEventListener('click', () => {
 
-  fetch('https://eadmin.eadplataforma.com/eadScanner.php?token=09d226908be059315316d6f66a99a4e4 ', {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    },
-    body: formData
-  })
-  .then((res) => {
-    console.log(res)
-    toast.show();
+    let token = "09d226908be059315316d6f66a99a4e4";
+    let address = `https://eadmin.eadplataforma.com/eadScanner.php?token=${token}`;
 
-    /* setTimeout(() => {
-      window.location.reload();
-    }, 350); */
-  })
-  .catch((err) => {
-    console.log('erro: ', err);
-  })
+    let form = new URLSearchParams();
+
+    for(let i in qrData){
+        form.append(i, qrData[i]);
+    }
+
+    //form.append("data", JSON.stringify(qrData));
+
+    let xhr = new XMLHttpRequest();
+  
+    xhr.open("POST", address);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onload = () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            console.log(response)
+        }
+    }
+
+    xhr.send(form);
+
+    /*fetch(address, {
+        method: 'POST',
+        mode: "no-cors",
+        cache: "no-cache",
+        headers: {
+            'Content-Type': "application/x-www-form-urlencoded"
+        },
+        body: form
+    })
+    .then((res) => {
+        console.log(res)
+        toast.show();
+
+        /* setTimeout(() => {
+          window.location.reload();
+        }, 350); */
+    /*})
+    .catch((err) => {
+        console.log('erro: ', err);
+    })*/
 
 });
 
