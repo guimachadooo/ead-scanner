@@ -145,7 +145,7 @@ sendData.addEventListener('click', () => {
   let form = new URLSearchParams();
 
   for(let i in qrData){
-      form.append(i, qrData[i]);
+      form.append(i.toUpperCase(), qrData[i]);
   }
 
   //form.append("data", JSON.stringify(qrData));
