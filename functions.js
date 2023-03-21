@@ -11,6 +11,7 @@ const stopButton = document.getElementById('stop-button');
 const sendButton = document.getElementById('send-button');
 const configButton = document.getElementById('config-button');
 const sendData = document.getElementById('send-data');
+const switchTrial = document.getElementById('flexSwitchCheckDefault');
 const cancelData = document.getElementById('cancel-data');
 const camQrResult = document.getElementById('cam-qr-result');
 const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
@@ -128,6 +129,12 @@ stopButton.addEventListener('click', () => {
 sendButton.addEventListener('click', () => {
   startButton.style.display = 'block';
   sendButton.style.display = 'none';
+}); 
+
+switchTrial.addEventListener('switchChange.bootstrapSwitch', function (event, state) {
+  //console.log(this); // DOM element
+  console.log('evento', event); // jQuery event
+  console.log('valor', state); // true | false
 });
 
 sendData.addEventListener('click', () => {
