@@ -29,7 +29,7 @@ window.onload = function() {
   scanner.stop();
   videoContainer.style.display = 'none';
   stopButton.style.display = 'none';
-  sendButton.style.display = 'none';
+  sendButton.style.display = 'block';
   localStorage.setItem("user", window.location.hash);
   localStorage.setItem("trial", false);
 };
