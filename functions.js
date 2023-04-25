@@ -30,6 +30,8 @@ window.onload = function() {
   videoContainer.style.display = 'none';
   stopButton.style.display = 'none';
   sendButton.style.display = 'none';
+  localStorage.setItem("user", window.location.hash);
+  localStorage.setItem("trial", false);
 };
 
 function convertToJson(result){
@@ -132,10 +134,8 @@ sendButton.addEventListener('click', () => {
   sendButton.style.display = 'none';
 }); 
 
-switchTrial.addEventListener('switchChange.bootstrapSwitch', function (event, state) {
-  //console.log(this); // DOM element
-  console.log('evento', event); // jQuery event
-  console.log('valor', state); // true | false
+switchTrial.addEventListener('click', (event, state) => {
+  localStorage.setItem("trial", event.srcElement.checked);
 });
 
 sendData.addEventListener('click', () => {
@@ -143,9 +143,14 @@ sendData.addEventListener('click', () => {
   let address = `https://eadmin.eadplataforma.com/eadScanner.php?token=${token}`;
 
   let form = new URLSearchParams();
+  let trial = localStorage.getItem('trial');
+  let user = localStorage.getItem('user');
 
+  form.append('trial', trial);
+  form.append('user', user);
+  
   for(let i in qrData){
-      form.append(i.toUpperCase(), qrData[i]);
+    form.append(i.toUpperCase(), qrData[i]);
   }
 
   //form.append("data", JSON.stringify(qrData));
