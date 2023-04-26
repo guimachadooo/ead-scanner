@@ -30,8 +30,8 @@ window.onload = function() {
   videoContainer.style.display = 'none';
   stopButton.style.display = 'none';
   sendButton.style.display = 'block';
-  localStorage.setItem("user", window.location.hash);
   localStorage.setItem("trial", false);
+  localStorage.setItem("user", window.location.hash);
 };
 
 function convertToJson(result){
@@ -131,7 +131,7 @@ stopButton.addEventListener('click', () => {
 
 sendButton.addEventListener('click', () => {
   startButton.style.display = 'block';
-  sendButton.style.display = 'none';
+  sendButton.style.display = 'block';
 }); 
 
 switchTrial.addEventListener('click', (event, state) => {
