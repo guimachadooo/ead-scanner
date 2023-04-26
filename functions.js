@@ -29,7 +29,7 @@ window.onload = function() {
   scanner.stop();
   videoContainer.style.display = 'none';
   stopButton.style.display = 'none';
-  sendButton.style.display = 'block';
+  sendButton.style.display = 'none';
   localStorage.setItem("trial", false);
   localStorage.setItem("user", window.location.hash);
 };
@@ -131,7 +131,7 @@ stopButton.addEventListener('click', () => {
 
 sendButton.addEventListener('click', () => {
   startButton.style.display = 'block';
-  sendButton.style.display = 'block';
+  sendButton.style.display = 'none';
 }); 
 
 switchTrial.addEventListener('click', (event, state) => {
@@ -167,6 +167,9 @@ sendData.addEventListener('click', () => {
   }
 
   xhr.send(form);
+
+  localStorage.setItem('trial', false);
+  document.querySelector(".form-check-input").checked = false;
 });
 
 cancelData.addEventListener('click', () => {
