@@ -173,6 +173,8 @@ sendData.addEventListener('click', () => {
 });
 
 cancelData.addEventListener('click', () => {
+  document.querySelector(".form-check-input").checked = false;
+  
   /* setTimeout(() => {
     window.location.reload();
   }, 200); */
