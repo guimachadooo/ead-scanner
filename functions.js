@@ -22,6 +22,7 @@ const camHasFlash = document.getElementById('cam-has-flash');
 const flashToggle = document.getElementById('flash-toggle');
 const flashState = document.getElementById('flash-state');
 const fileQrResult = document.getElementById('file-qr-result');
+const user = window.location.search.split("=")[1];
 let toast = new bootstrap.Toast(showToast);
 let qrData;
 
@@ -31,7 +32,7 @@ window.onload = function() {
   stopButton.style.display = 'none';
   sendButton.style.display = 'none';
   localStorage.setItem("trial", false);
-  localStorage.setItem("user", window.location.hash);
+  localStorage.setItem("user", user);
 };
 
 function convertToJson(result){
