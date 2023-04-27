@@ -106,7 +106,7 @@ select{
   left: -40% !important;
 }
 
-#toast-success{
+#toast-success, #toast-danger{
   font-size: 4em;
 }
 

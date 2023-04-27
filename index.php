@@ -211,7 +211,7 @@
     id="toast-danger" 
     aria-atomic="true"
     aria-live="assertive"
-    class="toast text-white bg-primary border-0 toast-container position-absolute top-0 end-0 p-3" 
+    class="toast text-white bg-danger border-0 toast-container position-absolute top-0 end-0 p-3" 
   >
     <div class="d-flex">
       <div class="toast-body">
