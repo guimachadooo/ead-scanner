@@ -4,7 +4,7 @@
     "short_name": "EAD Scanner",
     "name": "EAD Scanner",
     "description": "QR Code VCard Scanner",
-    "id": "scanner/",
+    "id": "scanner/?user=fabio",
     "icons": [
         {
             "src": "./icon-192x192.png",
@@ -30,6 +30,6 @@
     "start_url": "./?user=fabio",
     "background_color": "#16bd9c",
     "display": "standalone",
-    "scope": "./",
+    "scope": "./?user=fabio",
     "theme_color": "#16bd9c"
 }

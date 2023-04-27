@@ -20,7 +20,7 @@ body{
 .actions{
   position: fixed;
   left: 50%;
-  bottom: 0px;
+  bottom: 10%;
   transform: translate(-50%, -10%);
 }
 
