@@ -174,8 +174,9 @@ sendData.addEventListener('click', () => {
 });
 
 cancelData.addEventListener('click', () => {
+  localStorage.setItem("trial", false);
   document.querySelector(".form-check-input").checked = false;
-  
+
   /* setTimeout(() => {
     window.location.reload();
   }, 200); */
