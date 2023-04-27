@@ -16,6 +16,7 @@ const cancelData = document.getElementById('cancel-data');
 const camQrResult = document.getElementById('cam-qr-result');
 const inversionMode = document.getElementById('inversion-mode-select');
 const showToast = document.getElementById('toast-success');
+const showToastErro = document.getElementById('toast-error');
 const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
 const fileSelector = document.getElementById('file-selector');
 const camHasFlash = document.getElementById('cam-has-flash');
@@ -24,6 +25,7 @@ const flashState = document.getElementById('flash-state');
 const fileQrResult = document.getElementById('file-qr-result');
 const user = window.location.href.split("/")[4];
 let toast = new bootstrap.Toast(showToast);
+let toastError = new bootstrap.Toast(showToastError);
 let qrData;
 
 window.onload = function() {
@@ -165,6 +167,9 @@ sendData.addEventListener('click', () => {
     if (xhr.status >= 200 && xhr.status < 300) {
       console.log(xhr.response)
       toast.show();
+    }else if (xhr.status > 400) {
+      console.log(xhr.response)
+      toastError.show();
     }
   }
 

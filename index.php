@@ -206,6 +206,21 @@
     </div>
   </div>
 
+  <div 
+    role="alert" 
+    id="toast-danger" 
+    aria-atomic="true"
+    aria-live="assertive"
+    class="toast text-white bg-primary border-0 toast-container position-absolute top-0 end-0 p-3" 
+  >
+    <div class="d-flex">
+      <div class="toast-body">
+        Erro
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto toast-button" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+
   <!--<script src="../qr-scanner.umd.min.js"></script>-->
   <!--<script src="../qr-scanner.legacy.min.js"></script>-->
   <script type="module" src="./functions.js?v=1.34"></script>
