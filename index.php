@@ -223,7 +223,7 @@
 
   <!--<script src="../qr-scanner.umd.min.js"></script>-->
   <!--<script src="../qr-scanner.legacy.min.js"></script>-->
-  <script type="module" src="https://eadmin.eadplataforma.com/scanner/functions.js?v=1.35"></script>
+  <script type="module" src="https://eadmin.eadplataforma.com/scanner/functions.js?v=1.36"></script>
   <script type="module" src="https://eadmin.eadplataforma.com/scanner/serviceWorker.js?v=1.42"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"
     type="text/javascript"></script>
