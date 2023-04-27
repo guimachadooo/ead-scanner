@@ -22,12 +22,13 @@ const camHasFlash = document.getElementById('cam-has-flash');
 const flashToggle = document.getElementById('flash-toggle');
 const flashState = document.getElementById('flash-state');
 const fileQrResult = document.getElementById('file-qr-result');
-const user = window.location.search.split("=")[1];
+const user = window.location.href.split("/")[4];
 let toast = new bootstrap.Toast(showToast);
 let qrData;
 
 window.onload = function() {
   scanner.stop();
+  console.log(user);
   videoContainer.style.display = 'none';
   stopButton.style.display = 'none';
   sendButton.style.display = 'none';
@@ -174,7 +175,7 @@ sendData.addEventListener('click', () => {
 });
 
 cancelData.addEventListener('click', () => {
-  localStorage.setItem("trial", false);
+  localStorage.setItem('trial', false);
   document.querySelector(".form-check-input").checked = false;
 
   /* setTimeout(() => {
