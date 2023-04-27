@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>EAD Scanner</title>
-  <link rel="stylesheet" href="./style.css?v=1">
+  <link rel="stylesheet" href="https://eadmin.eadplataforma.com/scanner/style.css?v=1">
   <link rel="icon" type="image/x-icon" href="https://eadpub.s3.amazonaws.com/assets/read-qrcode/favicon.png">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -36,7 +36,7 @@
       endif;
       
     ?>
-    <link rel="manifest" href="./<?php echo $manifest; ?>.webmanifest" crossorigin="use-credentials">
+    <link rel="manifest" href="https://eadmin.eadplataforma.com/scanner/<?php echo $manifest; ?>.webmanifest" crossorigin="use-credentials">
     <link rel="canonical" href="<?php echo $url; ?>" />
 
 </head>
@@ -223,8 +223,8 @@
 
   <!--<script src="../qr-scanner.umd.min.js"></script>-->
   <!--<script src="../qr-scanner.legacy.min.js"></script>-->
-  <script type="module" src="./functions.js?v=1.34"></script>
-  <script type="module" src="./serviceWorker.js?v=1.4"></script>
+  <script type="module" src="https://eadmin.eadplataforma.com/scanner/functions.js?v=1.35"></script>
+  <script type="module" src="https://eadmin.eadplataforma.com/scanner/serviceWorker.js?v=1.42"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"
     type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -232,9 +232,13 @@
     crossorigin="anonymous"></script>
 
     <script>
-      self.addEventListener("fetch", function(event) {
-        console.log(`start server worker`)
-      });
+      if (navigator.serviceWorker) {
+            navigator.serviceWorker.register('https://eadmin.eadplataforma.com/scanner/serviceWorker.js?v=1.42').then(function(registration) {
+                //console.log('ServiceWorker registration successful with scope:',  registration.scope);
+            }).catch(function(error) {
+                //console.log('ServiceWorker registration failed:', error);
+            });
+        }
     </script>
 </body>
 
